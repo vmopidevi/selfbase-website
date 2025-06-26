@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SelfBase.ai - Your AI-Powered Life Experience Companion</title>
+    <title>Selfbase.ai - Your AI-Powered Life Experience Companion</title>
     <style>
         * {
             margin: 0;
@@ -46,17 +46,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        .hero-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out;
         }
 
         .nav-links {
@@ -307,74 +296,34 @@
         .problem-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: stretch;
+            gap: 4rem;
+            align-items: start;
         }
 
-        .problem-card, .solution-card {
-            background: #3a3a3a;
-            border-radius: 12px;
-            padding: 2.5rem;
+        .problem-content, .solution-content {
+            padding: 0;
             color: white;
-            transition: transform 0.3s ease;
         }
 
-        .problem-card:hover, .solution-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .problem-card .card-icon {
-            color: #ff6b4a;
+        .problem-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .problem-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #ff6b4a;
             font-weight: 400;
         }
 
-        .problem-card p {
+        .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            font-weight: 400;
+        }
+
+        .problem-content p, .solution-content p {
             font-size: 1rem;
-            color: #ffffff;
+            color: #cccccc;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .solution-card {
-            background: #3a3a3a;
-            border-radius: 12px;
-            padding: 2.5rem;
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        .solution-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .solution-card .card-icon {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .solution-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-            font-weight: 400;
-        }
-
-        .solution-card p {
-            font-size: 1rem;
-            color: #ffffff;
-            line-height: 1.6;
             font-weight: 400;
         }
 
@@ -501,13 +450,46 @@
         }
 
         .chat-interface {
-            max-width: 600px;
+            max-width: 400px;
             margin: 0 auto;
-            background: rgba(20, 20, 20, 0.8);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 400px;
+            height: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 50px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 35px;
+            padding: 60px 20px 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 15px;
+        }
+
+        .phone-content {
+            height: 100%;
+            overflow-y: auto;
         }
 
         .chat-demo .section-title {
@@ -678,12 +660,9 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">SelfBase.ai</div>
+            <div class="logo">Selfbase.ai</div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#demo">Demo</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -692,12 +671,10 @@
     <section class="hero">
         <div class="hero-gradient"></div>
         <div class="hero-content">
-            <div class="hero-logo">SelfBase.ai</div>
             <h1>Your life experiences, effortlessly captured</h1>
-            <p>Share your thoughts naturally and let SelfBase help you remember and reflect. No more manual spreadsheets or complex tools.</p>
+            <p>Share your thoughts naturally and let Selfbase help you remember and reflect. No more manual spreadsheets or complex tools.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn-primary">Join the Waitlist</a>
-                <a href="#demo" class="btn-secondary">See How It Works</a>
+                <a href="https://preview--memory-muse-ai.lovable.app/auth" class="btn-primary">Get Early Access</a>
             </div>
         </div>
     </section>
@@ -708,15 +685,13 @@
             <h2 class="section-title scroll-reveal fade-up">Stop losing your memories to spreadsheets</h2>
             <p class="section-subtitle scroll-reveal fade-up stagger-delay-1">Effortless capture beats manual tracking every time.</p>
             <div class="problem-grid">
-                <div class="problem-card scroll-reveal fade-left">
-                    <span class="card-icon">📊</span>
+                <div class="problem-content scroll-reveal fade-left">
                     <h3>The Old Way</h3>
-                    <p>Manually logging every movie, concert, and restaurant in Notion. Creating complex databases. Forgetting to update them. Losing precious memories in the chaos of daily life.</p>
-                    <p>Your experiences deserve better than being trapped in rigid spreadsheets.</p>
+                    <p>Manually logging every movie, concert, and restaurant in Notion, Airtable, spreadsheets, or complex databases. Creating elaborate tracking systems. Forgetting to update them. Losing precious memories in the chaos of daily life.</p>
+                    <p>Your experiences deserve better than being trapped in rigid tools.</p>
                 </div>
-                <div class="solution-card scroll-reveal fade-right">
-                    <span class="card-icon">💬</span>
-                    <h3>The SelfBase Way</h3>
+                <div class="solution-content scroll-reveal fade-right">
+                    <h3>The Selfbase Way</h3>
                     <p>Just talk. "Saw an incredible jazz concert last night at Blue Note." Our AI automatically captures, categorizes, and connects your experiences.</p>
                     <p>Natural conversation becomes your personal memory vault.</p>
                 </div>
@@ -730,7 +705,7 @@
             <div class="memory-content">
                 <h2 class="section-title scroll-reveal fade-up">Remember every moment</h2>
                 <p class="scroll-reveal fade-up stagger-delay-1">Life moves fast. Thousands of experiences flow through your days. How many amazing moments have you already forgotten?</p>
-                <a href="#" class="btn-secondary scroll-reveal fade-up stagger-delay-2">Start Capturing</a>
+                <a href="https://preview--memory-muse-ai.lovable.app/auth" class="btn-secondary scroll-reveal fade-up stagger-delay-2">Start Capturing</a>
             </div>
             <div class="memory-grid">
                 <div class="memory-column">
@@ -906,7 +881,7 @@
         <div class="container">
             <h2 class="scroll-reveal fade-up">Ready to never forget again?</h2>
             <p class="scroll-reveal fade-up stagger-delay-1">Join thousands of memory enthusiasts who've upgraded from manual tracking to effortless AI-powered capture.</p>
-            <a href="#" class="btn-primary scroll-reveal scale-in stagger-delay-2">Get Early Access</a>
+            <a href="https://preview--memory-muse-ai.lovable.app/auth" class="btn-primary scroll-reveal scale-in stagger-delay-2">Get Early Access</a>
         </div>
     </section>
 
