@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelfBase.ai - Your AI-Powered Life Experience Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #888888;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.15) 0%, rgba(10, 10, 10, 1) 70%);
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            animation: fadeInUp 1s ease-out;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #888888;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn-primary, .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 400;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary::after, .btn-secondary::after {
+            content: '→';
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover::after, .btn-secondary:hover::after {
+            transform: translateX(3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Animation Classes */
+        .scroll-reveal {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+        }
+
+        .fade-up {
+            transform: translateY(50px);
+        }
+
+        .fade-up.revealed {
+            transform: translateY(0);
+        }
+
+        .fade-left {
+            transform: translateX(-50px);
+        }
+
+        .fade-left.revealed {
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            transform: translateX(50px);
+        }
+
+        .fade-right.revealed {
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            transform: scale(0.8);
+        }
+
+        .scale-in.revealed {
+            transform: scale(1);
+        }
+
+        .stagger-delay-1 { transition-delay: 0.1s; }
+        .stagger-delay-2 { transition-delay: 0.2s; }
+        .stagger-delay-3 { transition-delay: 0.3s; }
+        .stagger-delay-4 { transition-delay: 0.4s; }
+        .stagger-delay-5 { transition-delay: 0.5s; }
+        .stagger-delay-6 { transition-delay: 0.6s; }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.5) 0%, rgba(10, 10, 10, 1) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .problem-section .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #888888;
+            margin-bottom: 4rem;
+            font-weight: 400;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .problem-card, .solution-card {
+            background: #3a3a3a;
+            border-radius: 12px;
+            padding: 2.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover, .solution-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .problem-card .card-icon {
+            color: #ff6b4a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b4a;
+            font-weight: 400;
+        }
+
+        .problem-card p {
+            font-size: 1rem;
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .solution-card {
+            background: #3a3a3a;
+            border-radius: 12px;
+            padding: 2.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .solution-card .card-icon {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            font-weight: 400;
+        }
+
+        .solution-card p {
+            font-size: 1rem;
+            color: #ffffff;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Memory Overflow Section */
+        .memory-overflow {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.8) 0%, rgba(10, 10, 10, 1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-overflow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .memory-overflow .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .memory-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .memory-content p {
+            font-size: 1rem;
+            color: #888888;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .memory-grid::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 1));
+            pointer-events: none;
+        }
+
+        .memory-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .memory-item {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .memory-item:hover {
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .memory-item.fade-out {
+            opacity: 0.3;
+            background: rgba(20, 20, 20, 0.3);
+        }
+
+        .memory-icon {
+            font-size: 1.5rem;
+            display: block;
+        }
+
+        .memory-text {
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .memory-date {
+            color: #888888;
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+
+        .memory-item.fade-out .memory-text {
+            color: #666666;
+        }
+
+        .memory-item.fade-out .memory-date {
+            color: #444444;
+        }
+        .chat-demo {
+            padding: 8rem 2rem;
+            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.05) 0%, rgba(10, 10, 10, 1) 70%);
+        }
+
+        .chat-interface {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .chat-demo .section-title {
+            color: #ffffff;
+        }
+
+        .chat-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .chat-messages {
+            space-y: 1rem;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 1rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .chat-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .message.ai .message-bubble {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.8) 0%, rgba(10, 10, 10, 1) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(20, 20, 20, 0.6);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .feature-card p {
+            color: #888888;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.1) 0%, rgba(10, 10, 10, 1) 70%);
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .final-cta p {
+            font-size: 1rem;
+            color: #888888;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .memory-overflow .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .memory-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">SelfBase.ai</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-logo">SelfBase.ai</div>
+            <h1>Your life experiences, effortlessly captured</h1>
+            <p>Share your thoughts naturally and let SelfBase help you remember and reflect. No more manual spreadsheets or complex tools.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Join the Waitlist</a>
+                <a href="#demo" class="btn-secondary">See How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title scroll-reveal fade-up">Stop losing your memories to spreadsheets</h2>
+            <p class="section-subtitle scroll-reveal fade-up stagger-delay-1">Effortless capture beats manual tracking every time.</p>
+            <div class="problem-grid">
+                <div class="problem-card scroll-reveal fade-left">
+                    <span class="card-icon">📊</span>
+                    <h3>The Old Way</h3>
+                    <p>Manually logging every movie, concert, and restaurant in Notion. Creating complex databases. Forgetting to update them. Losing precious memories in the chaos of daily life.</p>
+                    <p>Your experiences deserve better than being trapped in rigid spreadsheets.</p>
+                </div>
+                <div class="solution-card scroll-reveal fade-right">
+                    <span class="card-icon">💬</span>
+                    <h3>The SelfBase Way</h3>
+                    <p>Just talk. "Saw an incredible jazz concert last night at Blue Note." Our AI automatically captures, categorizes, and connects your experiences.</p>
+                    <p>Natural conversation becomes your personal memory vault.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Overflow Section -->
+    <section class="memory-overflow">
+        <div class="container">
+            <div class="memory-content">
+                <h2 class="section-title scroll-reveal fade-up">Remember every moment</h2>
+                <p class="scroll-reveal fade-up stagger-delay-1">Life moves fast. Thousands of experiences flow through your days. How many amazing moments have you already forgotten?</p>
+                <a href="#" class="btn-secondary scroll-reveal fade-up stagger-delay-2">Start Capturing</a>
+            </div>
+            <div class="memory-grid">
+                <div class="memory-column">
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-1">
+                        <span class="memory-icon">🎬</span>
+                        <span class="memory-text">Dune: Part Two</span>
+                        <span class="memory-date">March 2024</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-2">
+                        <span class="memory-icon">🍽️</span>
+                        <span class="memory-text">Eleven Madison Park</span>
+                        <span class="memory-date">February 2024</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-3">
+                        <span class="memory-icon">🎵</span>
+                        <span class="memory-text">Taylor Swift - Eras Tour</span>
+                        <span class="memory-date">January 2024</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-4">
+                        <span class="memory-icon">🎬</span>
+                        <span class="memory-text">Oppenheimer</span>
+                        <span class="memory-date">December 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-5">
+                        <span class="memory-icon">🍽️</span>
+                        <span class="memory-text">Joe's Pizza</span>
+                        <span class="memory-date">November 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-6">
+                        <span class="memory-icon">🎵</span>
+                        <span class="memory-text">Radiohead - Madison Square Garden</span>
+                        <span class="memory-date">October 2023</span>
+                    </div>
+                </div>
+                <div class="memory-column">
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-2">
+                        <span class="memory-icon">🎬</span>
+                        <span class="memory-text">Spider-Man: Across the Spider-Verse</span>
+                        <span class="memory-date">September 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-3">
+                        <span class="memory-icon">🍽️</span>
+                        <span class="memory-text">Gramercy Tavern</span>
+                        <span class="memory-date">August 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-4">
+                        <span class="memory-icon">🎵</span>
+                        <span class="memory-text">Beyoncé - Renaissance Tour</span>
+                        <span class="memory-date">July 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-5">
+                        <span class="memory-icon">🎬</span>
+                        <span class="memory-text">The Bear - Season 2</span>
+                        <span class="memory-date">June 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-6">
+                        <span class="memory-icon">🍽️</span>
+                        <span class="memory-text">Le Bernardin</span>
+                        <span class="memory-date">May 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-1">
+                        <span class="memory-icon">🎵</span>
+                        <span class="memory-text">Bad Bunny - World's Hottest Tour</span>
+                        <span class="memory-date">April 2023</span>
+                    </div>
+                </div>
+                <div class="memory-column">
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-3">
+                        <span class="memory-icon">🎬</span>
+                        <span class="memory-text">Everything Everywhere All at Once</span>
+                        <span class="memory-date">March 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-4">
+                        <span class="memory-icon">🍽️</span>
+                        <span class="memory-text">Katz's Delicatessen</span>
+                        <span class="memory-date">February 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-5">
+                        <span class="memory-icon">🎵</span>
+                        <span class="memory-text">Arctic Monkeys - Brooklyn Steel</span>
+                        <span class="memory-date">January 2023</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-6">
+                        <span class="memory-icon">🎬</span>
+                        <span class="memory-text">Avatar: The Way of Water</span>
+                        <span class="memory-date">December 2022</span>
+                    </div>
+                    <div class="memory-item scroll-reveal fade-up stagger-delay-1">
+                        <span class="memory-icon">🍽️</span>
+                        <span class="memory-text">Peter Luger Steak House</span>
+                        <span class="memory-date">November 2022</span>
+                    </div>
+                    <div class="memory-item fade-out">
+                        <span class="memory-icon">❓</span>
+                        <span class="memory-text">What else have you forgotten?</span>
+                        <span class="memory-date">...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="chat-demo" id="demo">
+        <div class="container">
+            <h2 class="section-title scroll-reveal fade-up">See the magic in action</h2>
+            <div class="chat-interface scroll-reveal scale-in">
+                <div class="chat-header">
+                    <h3>SelfBase Chat</h3>
+                    <p style="color: #888888; font-weight: 400;">Just talk naturally...</p>
+                </div>
+                <div class="chat-messages">
+                    <div class="message user">
+                        <div class="message-bubble">
+                            Had the most amazing dinner at Le Bernardin last night! The seafood was incredible and the service was perfect. Definitely worth the splurge for our anniversary.
+                        </div>
+                    </div>
+                    <div class="message ai">
+                        <div class="message-bubble">
+                            Wonderful! I've captured your Le Bernardin experience. 🍽️<br><br>
+                            <strong>Restaurant:</strong> Le Bernardin<br>
+                            <strong>Type:</strong> Fine Dining, Seafood<br>
+                            <strong>Occasion:</strong> Anniversary<br>
+                            <strong>Rating:</strong> Excellent<br>
+                            <strong>Notes:</strong> Incredible seafood, perfect service<br><br>
+                            This looks like it was special! Want me to remind you about similar anniversary spots next year?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title scroll-reveal fade-up">Built for memory enthusiasts</h2>
+            <div class="features-grid">
+                <div class="feature-card scroll-reveal fade-up stagger-delay-1">
+                    <span class="feature-icon">🎬</span>
+                    <h3>Movies & Shows</h3>
+                    <p>From blockbusters to indie films, capture your thoughts on every watch. Get personalized recommendations based on your taste patterns.</p>
+                </div>
+                <div class="feature-card scroll-reveal fade-up stagger-delay-2">
+                    <span class="feature-icon">🎵</span>
+                    <h3>Concerts & Events</h3>
+                    <p>Never forget that life-changing performance. Track artists, venues, and those magical moments that give you chills.</p>
+                </div>
+                <div class="feature-card scroll-reveal fade-up stagger-delay-3">
+                    <span class="feature-icon">🍽️</span>
+                    <h3>Restaurants & Food</h3>
+                    <p>Build your personal food journey. Remember hidden gems, track favorites, and discover your evolving palate.</p>
+                </div>
+                <div class="feature-card scroll-reveal fade-up stagger-delay-4">
+                    <span class="feature-icon">🧠</span>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Discover patterns in your preferences. See how your tastes evolve. Get suggestions that actually match your unique style.</p>
+                </div>
+                <div class="feature-card scroll-reveal fade-up stagger-delay-5">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Privacy First</h3>
+                    <p>Your memories are precious and private. We use enterprise-grade security to keep your personal experiences safe.</p>
+                </div>
+                <div class="feature-card scroll-reveal fade-up stagger-delay-6">
+                    <span class="feature-icon">✨</span>
+                    <h3>Effortless Capture</h3>
+                    <p>No forms, no fields, no friction. Just natural conversation that flows like talking to a friend who never forgets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="scroll-reveal fade-up">Ready to never forget again?</h2>
+            <p class="scroll-reveal fade-up stagger-delay-1">Join thousands of memory enthusiasts who've upgraded from manual tracking to effortless AI-powered capture.</p>
+            <a href="#" class="btn-primary scroll-reveal scale-in stagger-delay-2">Get Early Access</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScrollTop = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Powerful Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-reveal elements
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Animate chat messages on scroll with enhanced timing
+        const chatObserverOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const chatObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const messages = entry.target.querySelectorAll('.message');
+                    messages.forEach((message, index) => {
+                        setTimeout(() => {
+                            message.style.opacity = '1';
+                            message.style.transform = 'translateY(0) scale(1)';
+                        }, index * 1000); // Increased delay for more dramatic effect
+                    });
+                }
+            });
+        }, chatObserverOptions);
+
+        const chatInterface = document.querySelector('.chat-interface');
+        if (chatInterface) {
+            // Enhanced initial state for messages
+            chatInterface.querySelectorAll('.message').forEach(message => {
+                message.style.opacity = '0';
+                message.style.transform = 'translateY(30px) scale(0.9)';
+                message.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            });
+            
+            chatObserver.observe(chatInterface);
+        }
+
+        // Enhanced feature cards hover effects
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+                this.style.boxShadow = '0 25px 50px rgba(102, 126, 234, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            });
+        });
+
+        // Parallax effect for hero gradient
+        const heroGradient = document.querySelector('.hero-gradient');
+        if (heroGradient) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.5;
+                heroGradient.style.transform = `translateY(${parallax}px)`;
+            });
+        }
+
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add floating animation to feature icons
+        document.querySelectorAll('.feature-icon').forEach((icon, index) => {
+            icon.style.animation = `float 3s ease-in-out infinite`;
+            icon.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Add the float keyframe animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
